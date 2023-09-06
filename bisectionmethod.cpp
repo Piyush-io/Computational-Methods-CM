@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-#define EPSILON 0.0001
+#define EPSILON 0.001
 
 double func(double x)
 {
