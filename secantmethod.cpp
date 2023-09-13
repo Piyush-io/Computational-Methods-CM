@@ -4,32 +4,37 @@
 using namespace std;
 
 // Define the function for which you want to find the root
-double targetFunction(double x) {
-    return x * x - 4;
+double Function(double x)
+{
+    return (x * x * x) + (x * x) - 4;
 }
 
 // Secant method to find the root
-double secantMethod(double initialGuess1, double initialGuess2, double tolerance, int maxIterations) {
+double secantMethod(double initialGuess1, double initialGuess2, double tolerance, int maxIterations)
+{
     double rootApproximation;
     int iterations = 0;
 
-    do {
-        rootApproximation = initialGuess2 - (targetFunction(initialGuess2) * (initialGuess2 - initialGuess1)) / (targetFunction(initialGuess2) - targetFunction(initialGuess1));
+    do
+    {
+        rootApproximation = initialGuess2 - (Function(initialGuess2) * (initialGuess2 - initialGuess1)) / (Function(initialGuess2) - Function(initialGuess1));
         initialGuess1 = initialGuess2;
         initialGuess2 = rootApproximation;
         iterations++;
 
-        if (iterations >= maxIterations) {
+        if (iterations >= maxIterations)
+        {
             cout << "Maximum iterations reached." << endl;
             break;
         }
 
-    } while (abs(targetFunction(rootApproximation)) > tolerance);
+    } while (abs(Function(rootApproximation)) > tolerance);
 
     return rootApproximation;
 }
 
-int main() {
+int main()
+{
     double initialGuess1, initialGuess2, tolerance, root;
     int maxIterations;
 
