@@ -3,13 +3,11 @@
 
 using namespace std;
 
-// Define the function for which you want to find the root
 double Function(double x)
 {
     return (x * x * x) + (x * x) - 4;
 }
 
-// Secant method to find the root
 double secantMethod(double initialGuess1, double initialGuess2, double tolerance, int maxIterations)
 {
     double rootApproximation;

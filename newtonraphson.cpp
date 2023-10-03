@@ -27,6 +27,6 @@ double NewtonRaphson(double a)
 
 int main()
 {
-    cout << "root of the given equation is: " << NewtonRaphson(-10) << endl;
+    cout << "root of the given equation is: " << NewtonRaphson(-4) << endl;
     return 0;
 }
