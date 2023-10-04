@@ -1,4 +1,3 @@
-#include <bits/stdc++.h>
 #include <iostream>
 using namespace std;
 
@@ -18,15 +17,12 @@ void dividedDiffTable(float x[], float y[][10], int n)
     {
         for (int j = 0; j < n - i; j++)
         {
-            y[j][i] = (y[j][i - 1] - y[j + 1]
-                                      [i - 1]) /
-                      (x[j] - x[i + j]);
+            y[j][i] = (y[j][i - 1] - y[j + 1][i - 1]) / (x[j] - x[i + j]);
         }
     }
 }
 
-float applyFormula(float value, float x[],
-                   float y[][10], int n)
+float formula(float value, float x[], float y[][10], int n)
 {
     float sum = y[0][0];
 
@@ -37,15 +33,15 @@ float applyFormula(float value, float x[],
     return sum;
 }
 
-void printDiffTable(float y[][10], int n)
+void displaytable(float y[][10], int n)
 {
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n - i; j++)
         {
-            cout << y[i][j] << "\t ";
+            cout << y[i][j] << "\t";
         }
-        cout << "\n";
+        cout << endl;
     }
 }
 
@@ -63,11 +59,10 @@ int main()
 
     dividedDiffTable(x, y, n);
 
-    printDiffTable(y, n);
+    displaytable(y, n);
 
     value = 7;
 
-    cout << "\nValue at " << value << " is "
-         << applyFormula(value, x, y, n) << endl;
+    cout << "Value at " << value << " is " << formula(value, x, y, n) << endl;
     return 0;
 }
